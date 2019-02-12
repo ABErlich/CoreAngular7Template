@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28307.271
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organigrama.Web", "Organigrama.Web\Organigrama.Web.csproj", "{91AB6BE3-F098-4EA2-9991-6ED6332C4A83}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Organigrama.Service", "Organigrama.Service\Organigrama.Service.csproj", "{68E21C4E-A601-496B-A9C8-9A9A0F18A056}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{91AB6BE3-F098-4EA2-9991-6ED6332C4A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{91AB6BE3-F098-4EA2-9991-6ED6332C4A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{91AB6BE3-F098-4EA2-9991-6ED6332C4A83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{68E21C4E-A601-496B-A9C8-9A9A0F18A056}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{68E21C4E-A601-496B-A9C8-9A9A0F18A056}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{68E21C4E-A601-496B-A9C8-9A9A0F18A056}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{68E21C4E-A601-496B-A9C8-9A9A0F18A056}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
