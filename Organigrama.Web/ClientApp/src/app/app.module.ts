@@ -10,6 +10,14 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { HeadComponent } from './layout/head.component';
+import { LeftPanelComponent } from './layout/left-panel.component';
+import { AppRoutingModule } from './app-routing.modules';
+import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/login/logout.component';
+import { Helpers } from './helpers/helpers';
+import { TokenService } from './services/token.service';
+import { AppConfig } from './config/config';
 
 import { MatButtonModule, MatCheckboxModule } from '@angular/material';
 import { MatInputModule } from '@angular/material/input';
@@ -22,7 +30,11 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     NavMenuComponent,
     HomeComponent,
     CounterComponent,
-    FetchDataComponent
+    FetchDataComponent,
+    HeadComponent,
+    LeftPanelComponent,
+    LoginComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
@@ -34,13 +46,14 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     MatSidenavModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-    ])
+    AppRoutingModule
+    // RouterModule.forRoot([
+    //   { path: '', component: HomeComponent, pathMatch: 'full' },
+    //   { path: 'counter', component: CounterComponent },
+    //   { path: 'fetch-data', component: FetchDataComponent },
+    // ])
   ],
-  providers: [],
+  providers: [Helpers, TokenService, AppConfig ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

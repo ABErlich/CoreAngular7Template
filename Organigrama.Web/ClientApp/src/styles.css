@@ -1,5 +1,4 @@
 /* You can add global styles to this file, and also import other style files */
 
-/* Esto es un error en compilacion, lo incluyo directamente en el index */
-/*@import '../node_modules/@angular/material/prebuild-themes/deeppurple-amber.css'*/
+@import '../node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css';
 

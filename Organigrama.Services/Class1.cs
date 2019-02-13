@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Organigrama.Service
+namespace Organigrama.Services
 {
     public class Class1
     {
