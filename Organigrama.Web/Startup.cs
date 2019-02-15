@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Organigrama.Web.App_Start;
 
 namespace Organigrama.Web {
     public class Startup {
@@ -16,6 +17,10 @@ namespace Organigrama.Web {
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services) {
+
+            DependencyInjectionConfig.AddScope(services);
+            JwtTokenConfig.AddAuthentication(services, Configuration);
+            DBContextConfig.Initialize(services, Configuration);
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 

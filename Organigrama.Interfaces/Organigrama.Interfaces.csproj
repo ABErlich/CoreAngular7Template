@@ -5,7 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Services\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Class1.cs" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\Organigrama.Models\Organigrama.Models.csproj" />
-    <ProjectReference Include="..\Organigrama.Interfaces\Organigrama.Interfaces.csproj" />
   </ItemGroup>
 </Project>

@@ -69,6 +69,14 @@
     <Folder Include="ClientApp\src\app\layout\" />
     <Folder Include="ClientApp\src\app\models\" />
     <Folder Include="ClientApp\src\app\services\" />
+    <Folder Include="App_Start\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Organigrama.ViewModels\Organigrama.ViewModels.csproj" />
+    <ProjectReference Include="..\Organigrama.Models\Organigrama.Models.csproj" />
+    <ProjectReference Include="..\Organigrama.Services\Organigrama.Services.csproj" />
+    <ProjectReference Include="..\Organigrama.Repositories\Organigrama.Repositories.csproj" />
+    <ProjectReference Include="..\Organigrama.Mappers\Organigrama.Mappers.csproj" />
   </ItemGroup>
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
     <!-- Ensure Node.js is installed -->
