@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Organigrama.Interfaces.Repositories
 {
@@ -8,6 +9,6 @@ namespace Organigrama.Interfaces.Repositories
         T Save(T domain);
         bool Update(T domain);
         bool Delete(int id);
-        List<T> GetAll();
+        IQueryable<T> GetAll();
     }
 }

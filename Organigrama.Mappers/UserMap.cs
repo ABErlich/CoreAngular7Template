@@ -1,24 +1,29 @@
 ﻿using System;
+using System.Collections.Generic;
+using Organigrama.Interfaces.Mappers;
+using Organigrama.Interfaces.Services;
 using Organigrama.Models;
+using Organigrama.Services;
 using Organigrama.ViewModels;
 
 namespace Organigrama.Mappers
 {
-    public class UserMap: IUserMap
+    public class UserMap: BaseMapper<User, UserViewModel>, IUserMap
     {
+        
         IUserService userService;
 
         public UserMap(IUserService service){
-            userService = service;
+            this.baseService = userService = service;
         }
 
-        public UserViewModel Create(UserViewModel viewModel){
-            UserMap user = ViewModelToDomain(viewModel);
-            return DomainToViewModel(userService.Create(user));
-        }
+        //public UserViewModel Create(UserViewModel viewModel){
+        //    UserMap user = ViewModelToDomain(viewModel);
+        //    return DomainToViewModel(userService.Create(user));
+        //}
 
         public bool Update(UserViewModel viewModel){
-            UserMap user = ViewModelToDomain(viewModel);
+            User user = ViewModelToDomain(viewModel);
             return userService.Update(user);
         }
 
@@ -30,7 +35,7 @@ namespace Organigrama.Mappers
             return DomainToViewModel(userService.GetAll());
         }
 
-        public UserViewModel DomainToViewModel(UserMap domain){
+        public override UserViewModel DomainToViewModel(User domain){
             UserViewModel model = new UserViewModel();
 
             model.username = domain.Name;
@@ -38,7 +43,7 @@ namespace Organigrama.Mappers
             return model;
         }
 
-        public List<UserViewModel> DomainToViewModel(List<User> domain){
+        public override List<UserViewModel> DomainToViewModel(List<User> domain){
             List<UserViewModel> model = new List<UserViewModel>();
 
             foreach(User user in domain){
@@ -48,7 +53,7 @@ namespace Organigrama.Mappers
             return model;
         }
 
-        public User ViewModelToDomain(UserViewModel userViewModel){
+        public override User ViewModelToDomain(UserViewModel userViewModel){
             User domain = new User();
 
             domain.Name = userViewModel.username;

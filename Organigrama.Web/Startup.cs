@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Organigrama.Models.Context;
 using Organigrama.Web.App_Start;
 
 namespace Organigrama.Web {
@@ -24,6 +25,9 @@ namespace Organigrama.Web {
             
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
 
+            //var connection = @"Server=(localdb)\mssqllocaldb;Organigrama.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
+            //services.AddDbContext<ApplicationContext>
+            //(options => options.UseSqlServer(connection));
             // In production, the Angular files will be served from this directory
             services.AddSpaStaticFiles(configuration => {
                 configuration.RootPath = "ClientApp/dist";

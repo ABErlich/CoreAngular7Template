@@ -7,11 +7,13 @@
   <ItemGroup>
     <Folder Include="Services\" />
     <Folder Include="Repositories\" />
+    <Folder Include="Mappers\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Class1.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Organigrama.Models\Organigrama.Models.csproj" />
+    <ProjectReference Include="..\Organigrama.ViewModels\Organigrama.ViewModels.csproj" />
   </ItemGroup>
 </Project>

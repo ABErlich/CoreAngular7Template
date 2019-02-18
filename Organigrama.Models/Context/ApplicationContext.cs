@@ -5,15 +5,16 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace Organigrama.Models.Context
 {
-    public class ApplicationContext: IdentityDbContext<User>, IApplicationContext
+    public class ApplicationContext: DbContext, IApplicationContext
     {
         private IDbContextTransaction dbContextTransaction;
 
         public ApplicationContext(DbContextOptions options): base(options)
         {
+            
         }
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<User> UsersDB { get; set; }
 
         public new void SaveChanges(){
             base.SaveChanges();

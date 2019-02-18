@@ -7,5 +7,6 @@
   <ItemGroup>
     <ProjectReference Include="..\Organigrama.ViewModels\Organigrama.ViewModels.csproj" />
     <ProjectReference Include="..\Organigrama.Models\Organigrama.Models.csproj" />
+    <ProjectReference Include="..\Organigrama.Services\Organigrama.Services.csproj" />
   </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Organigrama.Interfaces.Repositories;
 using Organigrama.Models;
 using Organigrama.Models.Context;
@@ -7,7 +8,9 @@ namespace Organigrama.Repositories
 {
     public class UserRepository: BaseRepository<User>, IUserRepository
     {
-        public UserRepository(IApplicationContext context): base(context){}
+        public UserRepository(ApplicationContext context): base(context){
+            
+        }
 
         //public User Save(User domain){
         //    try{
