@@ -1,23 +1,28 @@
 ﻿using System;
 using System.Collections.Generic;
+using Organigrama.Interfaces.Mappers;
 using Organigrama.Interfaces.Services;
 
 namespace Organigrama.Mappers
 {
-    public abstract class BaseMapper<DB,VM>
+    public abstract class BaseMapper<DB,VM>: IBaseMapper<DB,VM>
     {
         
         protected IBaseService<DB> baseService;
 
-        public VM Create(VM viewModel)
-        {
-            DB user = ViewModelToDomain(viewModel);
-            return DomainToViewModel(baseService.Create(user));
-        }
-
         public abstract DB ViewModelToDomain(VM viewModel);
         public abstract VM DomainToViewModel(DB domain);
-        public abstract List<VM> DomainToViewModel(List<DB> domain);
 
+        public List<VM> DomainToViewModel(List<DB> domain)
+        {
+            List<VM> model = new List<VM>();
+
+            foreach (DB user in domain)
+            {
+                model.Add(DomainToViewModel(user));
+            }
+
+            return model;
+        }
     }
 }

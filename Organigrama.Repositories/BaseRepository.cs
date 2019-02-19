@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Microsoft.EntityFrameworkCore.Storage;
+using Organigrama.Interfaces.Repositories;
 using Organigrama.Models;
 using Organigrama.Models.Context;
 using Organigrama.Models.EntityBase;
 
 namespace Organigrama.Repositories
 {
-    public class BaseRepository<T> where T: EntityBase
+    public class BaseRepository<T>: IBaseRepository<T> where T: EntityBase
     {
         //protected IApplicationContext context;
         protected readonly DbContext context;
@@ -26,12 +28,12 @@ namespace Organigrama.Repositories
             return context;
         }
 
-        public T Save(T domain)
+        public void Save(T domain)
         {
             try
             {
                 domain.CreatedOn = DateTime.Now;
-                return context.Set<T>.Add(domain);
+                context.Set<T>().Add(domain);
             }
             catch (Exception ex)
             {
@@ -93,20 +95,11 @@ namespace Organigrama.Repositories
             }
         }
 
-        public bool Delete(int id)
+        public void Delete(T domain)
         {
             try
             {
-                T domain = context.Set<T>.Where(x => x.Id.Equals(id)).FirstOrDefault();
-                if (domain != null)
-                {
-                    Delete(id);
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+                context.Set<T>().Remove(domain);
             }
             catch (Exception ex)
             {
@@ -127,6 +120,14 @@ namespace Organigrama.Repositories
                 throw ex;
             }
 
+        }
+
+        public T GetById(int id){
+            try{
+                return context.Set<T>().Find(id);
+            }catch(Exception ex){
+                throw ex;
+            }
         }
 
         public IQueryable<T> Where(Expression<Func<T, bool>> predicate)

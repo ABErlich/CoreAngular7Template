@@ -6,9 +6,10 @@ namespace Organigrama.Interfaces.Repositories
 {
     public interface IBaseRepository<T>
     {
-        T Save(T domain);
+        void Save(T domain);
         bool Update(T domain);
-        bool Delete(int id);
+        void Delete(T domain);
         IQueryable<T> GetAll();
+        T GetById(int id);
     }
 }

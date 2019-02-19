@@ -5,11 +5,13 @@ namespace Organigrama.Interfaces.Services
 {
     public interface IBaseService<T>
     {
-        T Create(T domain);
+        void Create(T domain);
 
         bool Update(T domain);
 
-        bool Delete(int id);
+        void Delete(int id);
+
+        void Delete(T domain);
 
         List<T> GetAll();
 

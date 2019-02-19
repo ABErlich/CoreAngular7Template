@@ -1,4 +1,5 @@
 ﻿using System;
+using Organigrama.Interfaces.Mappers;
 using Organigrama.ViewModels;
 
 namespace Organigrama.Web.App_Start
@@ -9,7 +10,7 @@ namespace Organigrama.Web.App_Start
 
         public DBInitializeConfig(IUserMap _userMap)
         {
-			userMap = _userMap
+            userMap = _userMap;
         }
 
         public void DataTest(){
@@ -17,8 +18,8 @@ namespace Organigrama.Web.App_Start
         }
 
         private void Users(){
-            userMap.Create(new UserViewModel() { id = 1, username = "Pablo" });
-            userMap.Create(new UserViewModel() { id = 1, username = "Diego" });
+            //userMap.Create(new UserViewModel() { id = 1, username = "Pablo" });
+            //userMap.Create(new UserViewModel() { id = 1, username = "Diego" });
 
         }
     }

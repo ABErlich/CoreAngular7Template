@@ -31,7 +31,8 @@ namespace Organigrama.Web.Controllers
             var user = Authenticate(login);
             if(user != null){
                 var tokenString = BuildToken(user);
-                response = new OkResult(tokenString);
+                //response = new OkResult(tokenString);
+                response = new OkResult();
             }
 
             return response;

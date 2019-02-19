@@ -27,8 +27,8 @@ namespace Organigrama.Mappers
             return userService.Update(user);
         }
 
-        public bool Delete(int id){
-            return userService.Delete(id);
+        public void Delete(int id){
+            userService.Delete(id);
         }
 
         public List<UserViewModel> GetAll(){
@@ -39,16 +39,6 @@ namespace Organigrama.Mappers
             UserViewModel model = new UserViewModel();
 
             model.username = domain.Name;
-
-            return model;
-        }
-
-        public override List<UserViewModel> DomainToViewModel(List<User> domain){
-            List<UserViewModel> model = new List<UserViewModel>();
-
-            foreach(User user in domain){
-                model.Add(DomainToViewModel(user));
-            }
 
             return model;
         }

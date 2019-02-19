@@ -1,6 +1,7 @@
 ﻿using System;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Organigrama.Interfaces.Mappers;
 
 namespace Organigrama.Web.Controllers
 {
