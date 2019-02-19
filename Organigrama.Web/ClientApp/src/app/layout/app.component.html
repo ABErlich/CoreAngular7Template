@@ -1,26 +1,5 @@
- <!-- <div class='container-fluid'>
-  <div class='row'>
-    <div class='col-sm-3'>
-      <app-nav-menu></app-nav-menu>
-    </div>
-    <div class='col-sm-9 body-content'>
-      <router-outlet></router-outlet>
-    </div>
-  </div>
-</div> -->
+<app-nav-menu></app-nav-menu>
 
-<div *ngIf="authentication"> 
-  <app-head></app-head>
-  <button type="button" mat-button (click)="drawer.toggle()">
-    Menu
-  </button>
-  <mat-drawer-container class="example-container" autosize>
-    <mat-drawer #drawer class="example-sidenav" mode="side"> 
-      <app-left-panel></app-left-panel>
-    </mat-drawer>
-    <div>
-      <router-outlet></router-outlet>
-    </div>
-   </mat-drawer-container>
-</div>
-<div *ngIf="!authentication"><app-login></app-login></div> 
+<section>
+  <router-outlet></router-outlet>
+</section>

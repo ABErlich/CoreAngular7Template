@@ -47,11 +47,6 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     HttpClientModule,
     FormsModule,
     AppRoutingModule
-    // RouterModule.forRoot([
-    //   { path: '', component: HomeComponent, pathMatch: 'full' },
-    //   { path: 'counter', component: CounterComponent },
-    //   { path: 'fetch-data', component: FetchDataComponent },
-    // ])
   ],
   providers: [Helpers, TokenService, AppConfig ],
   bootstrap: [AppComponent]
