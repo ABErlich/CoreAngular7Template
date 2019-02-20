@@ -7,5 +7,8 @@ import { Component } from '@angular/core';
 })
 
 export class MenuComponent{
-    title = 'Angular seed';
+  position: string = "Empleado";
+  date: Date = new Date();
+  title = 'Organigrama';
+
 }
