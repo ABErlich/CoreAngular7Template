@@ -4,51 +4,46 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
+import { MaterialModule } from './material/material';
+import { FlexLayoutModule } from '@angular/flex-layout';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 import { AppComponent } from './layout/app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
-import { HeadComponent } from './layout/head.component';
-import { LeftPanelComponent } from './layout/left-panel.component';
+import { MenuComponent } from './layout/app-menu.component';
 import { AppRoutingModule } from './app-routing.modules';
 import { LoginComponent } from './components/login/login.component';
 import { LogoutComponent } from './components/login/logout.component';
 import { Helpers } from './helpers/helpers';
 import { TokenService } from './services/token.service';
 import { AppConfig } from './config/config';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
 
-import { MatButtonModule, MatCheckboxModule } from '@angular/material';
-import { MatInputModule } from '@angular/material/input';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSidenavModule } from '@angular/material/sidenav';
+
+import { AuthGuard } from './helpers/canActivateAuthGuard';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
     HomeComponent,
-    CounterComponent,
     FetchDataComponent,
-    HeadComponent,
-    LeftPanelComponent,
+    MenuComponent,
     LoginComponent,
-    LogoutComponent
+    LogoutComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatCheckboxModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatSidenavModule,
+    MaterialModule,
     HttpClientModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FlexLayoutModule,
+    MatToolbarModule
   ],
-  providers: [Helpers, TokenService, AppConfig ],
+  providers: [Helpers, TokenService, AppConfig, AuthGuard ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

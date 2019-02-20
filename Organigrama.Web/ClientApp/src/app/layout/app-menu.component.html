@@ -1,0 +1,42 @@
+
+<div style="height: 100vh;">
+  <mat-toolbar color="primary">
+    <span>Organigrama</span>
+
+    <span class="example-spacer"></span>
+
+    <div fxShow="true" fxHide.lt-md="true">
+      <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+      <button mat-button>Menu 1</button>
+      <button mat-button>Menu 2</button>
+      <button mat-button>Menu 3</button>
+      <button mat-button>Menu 4</button>
+      <button mat-button>Menu 5</button>
+      <button mat-button>Menu 6</button>
+    </div>
+
+    <div fxShow="true" fxHide.gt-sm="true">
+      <button>
+        <i class="material-icons" (click)="sidenav.toggle()">
+          menu
+        </i>
+      </button>
+    </div>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill class="example-container">
+    <mat-sidenav #sidenav fxLayout="column">
+      <div fxLayout="column">
+        <button (click)="sidenav.toggle()" mat-button>Close</button>
+        <button mat-button>Menu 1</button>
+        <button mat-button>Menu 2</button>
+        <button mat-button>Menu 3</button>
+        <button mat-button>Menu 4</button>
+        <button mat-button>Menu 5</button>
+        <button mat-button>Menu 6</button>
+      </div>
+    </mat-sidenav>
+    <mat-sidenav-content fxFlexFill>Main content</mat-sidenav-content>
+  </mat-sidenav-container>
+</div>
